@@ -1,5 +1,6 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
+#include <string>
 #include "Staff.h"
 
 using namespace std;
@@ -23,7 +24,7 @@ void deleteStaff(vector<Staff>& v, int _no) {
 
 void listStaff(vector<Staff>& v) {
 	
-	cout << endl << "--- Staffs ---";
+	cout << endl << "--- Staff List ---";
 	for (const Staff& staff : v) {
 		cout << endl;
 		staff.print();
@@ -68,8 +69,9 @@ int main() {
 				cin.ignore(1000, '\n');
 				cin >> staffNo;
 			}
-			cout << "Enter name: ";
-			cin >> name;
+			cin.ignore();
+			cout << "Enter name and surname: ";
+			getline(cin, name);
 			cout << "Enter position: ";
 			cin >> position;
 			addStaff(vStaff, staffNo, name, position);
